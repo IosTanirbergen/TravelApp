@@ -14,8 +14,8 @@ struct ContentView: View {
                 DiscoveryCategories()
                 PopularDestination()
                 PopularRestourant()
-                TrandingCreators()
-            }.navigationTitle("Yolo")
+                GitInformation()
+            }.navigationTitle("Qazaqstan")
         }
     }
 }
@@ -53,6 +53,13 @@ struct DiscoveryCategories: View {
 }
 
 struct PopularDestination: View {
+    
+    let destinations: [Destination] = [
+        .init(imageName: "Almaty", countryName: "Qazaqstan", cityName: "Almaty"),
+        .init(imageName: "Aktau", countryName: "Qazaqstan", cityName: "Aktau"),
+        .init(imageName: "Astana", countryName: "Qazaqstan", cityName: "Astana")
+    ]
+    
     var body: some View {
         VStack {
             HStack {
@@ -65,9 +72,9 @@ struct PopularDestination: View {
              .padding(.top)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
-                    ForEach.init(0..<5, id: \.self) { destinationItems in
+                    ForEach.init(destinations, id: \.self) { destinationItems in
                         VStack(alignment: .leading) {
-                            Image("Almaty")
+                            Image(destinationItems.imageName)
                                 .resizable()
                                 .scaledToFill()
                                 .cornerRadius(5)
@@ -79,11 +86,11 @@ struct PopularDestination: View {
                             
                             Spacer()
                             
-                            Text("Almaty")
+                            Text(destinationItems.countryName)
                                 .font(.system(size: 12, weight: .semibold))
                                 .padding(.horizontal, 8)
                             
-                            Text("City")
+                            Text(destinationItems.cityName)
                                 .font(.system(size: 10, weight: .semibold))
                                 .padding(.horizontal, 8)
                                 .padding(.bottom, 8)
@@ -102,6 +109,13 @@ struct PopularDestination: View {
 }
 
 struct PopularRestourant: View {
+    
+    let venueItem: [SubCategoriesItem] = [
+        .init(categoriesTitle: "Swimming", image: "CaspianSea", rating: "4.9", venue: "CaspianSea", price: "1500 T", county: "KZ", city: "Aktau - Ozen"),
+        .init(categoriesTitle: "FastFood", image: "Bahandi", rating: "4.7", venue: "Bahandi", price: "1800 T", county: "KZ", city: "Almaty - Astana"),
+        .init(categoriesTitle: "Mountains", image: "Mountain", rating: "5.0", venue: "Alatau", price: "2000 T", county: "KZ", city: "Almaty")
+    ]
+    
     var body: some View {
         VStack {
             HStack {
@@ -113,13 +127,46 @@ struct PopularRestourant: View {
             }.padding(.horizontal)
              .padding(.top)
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 6) {
-                    ForEach.init(0..<5, id: \.self) { placesItems in
-                        Spacer()
-                            .frame(width: 180, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .background(Color.gray)
+                HStack(spacing: 8.0) {
+                    ForEach.init(venueItem, id: \.self) { placesItems in
+                        HStack(spacing: 8) {
+                            Image(placesItems.image)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 80, height: 80)
+                                .cornerRadius(4)
+                                .background(Color(.init(white: 0.9, alpha: 1)))
+                                .clipped()
+                                .background(Color.gray)
+                                .padding(.leading, 6)
+                                .padding(.vertical, 6)
+                            
+                            VStack(alignment: .leading, spacing: 6) {
+                                HStack {
+                                    Text(placesItems.categoriesTitle)
+                                    Spacer()
+                                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                        Image(systemName: "ellipsis")
+                                            .foregroundColor(.gray)
+                                    })
+                                }
+                                
+                                HStack {
+                                    Image(systemName: "star.fill")
+                                    Text("\(placesItems.rating) \(placesItems.venue) - \(placesItems.price)")
+                                }
+                                
+                                Text("\(placesItems.county) \(placesItems.city)")
+                                    .font(.system(size: 12, weight: .semibold))
+                            }.font(.system(size: 12, weight: .semibold))
+                            
+                            Spacer()
+                        }
+                            .frame(width: 280, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .background(Color(.init(white: 0.9, alpha: 1)))
                             .cornerRadius(6)
                             .shadow(radius: 3)
+                            .cornerRadius(7)
                             .padding(.bottom)
                     }
                 }.padding(.horizontal)
@@ -128,11 +175,18 @@ struct PopularRestourant: View {
     }
 }
 
-struct TrandingCreators: View {
+struct GitInformation: View {
+    
+    let git: [GitsItem] = [
+        .init(gitName: "Aynur", gitImage: "first"),
+        .init(gitName: "Asem Batyrkyzy", gitImage: "second"),
+        .init(gitName: "Sabina Bayzakova", gitImage: "third")
+    ]
+    
     var body: some View {
         VStack {
             HStack {
-                Text("Traiding ceators")
+                Text("Top gits")
                     .font(.system(size: 15, weight: .semibold))
                 Spacer()
                 Text("See All")
@@ -140,14 +194,23 @@ struct TrandingCreators: View {
             }.padding(.horizontal)
              .padding(.top)
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 6) {
-                    ForEach.init(0..<15, id: \.self) { tradingItems in
-                        Spacer()
-                            .frame(width: 60, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .background(Color.gray)
-                            .cornerRadius(.infinity)
-                            .shadow(radius: 3)
+                HStack(alignment: .top, spacing: 10.0) {
+                    ForEach.init(git, id: \.self) { gitItems in
+                            VStack(spacing: 8){
+                                Image(gitItems.gitImage)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 64, height: 64)
+                                    .cornerRadius(32)
+                                    .clipped()
+                                Text(gitItems.gitName)
+                                    .font(.system(size: 13, weight: .regular))
+                                    .multilineTextAlignment(.center)
+                            }
                     }
+                    .frame(width: 65)
+                    .shadow(radius: 5)
+                    .padding(.bottom)
                 }.padding(.horizontal)
             }
         }
