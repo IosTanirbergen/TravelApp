@@ -8,14 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .foregroundColor: UIColor.white
+        ]
+    }
+    
     var body: some View {
         NavigationView {
-            ScrollView(.vertical) {
-                DiscoveryCategories()
-                PopularDestination()
-                PopularRestourant()
-                GitInformation()
-            }.navigationTitle("Qazaqstan")
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color.blue, Color.red]), startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+                Color.white
+                    .offset(y: 400)
+                ScrollView(.vertical) {
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                        Text("Where to do you want go?")
+                        Spacer()
+                    }.foregroundColor(.white)
+                    .font(.system(size: 16, weight: .regular))
+                    .padding()
+                    .background(Color(.init(white: 1, alpha: 0.3)))
+                    .cornerRadius(16)
+                    .padding(16)
+                    DiscoveryCategories()
+                    VStack {
+                        PopularDestination()
+                        PopularRestourant()
+                        GitInformation()
+                    }
+                    .background(Color.white)
+                    .cornerRadius(16)
+                    .padding(.top, 20)
+                }
+            }
+            .navigationTitle("Qazaqstan")
         }
     }
 }
@@ -37,13 +66,14 @@ struct DiscoveryCategories: View {
                     ForEach.init(categories, id: \.self) { categoriesItems in
                         VStack(spacing: 4) {
                             Image(systemName: categoriesItems.imageName)
-                                .foregroundColor(.white)
+                                .foregroundColor(Color(#colorLiteral(red: 0.3202754259, green: 0.3971690536, blue: 0.7395551801, alpha: 1)))
                                 .frame(width: 68, height: 68, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .background(Color.gray)
+                                .background(Color.white)
                                 .cornerRadius(34)
                                 .shadow(radius: 4)
                             Text(categoriesItems.name)
                                 .font(.system(size: 14, weight: .regular))
+                                .foregroundColor(.white)
                         }.padding(.leading) .padding(.top)
                     }.frame(width: 68)
                 }
@@ -99,7 +129,7 @@ struct PopularDestination: View {
                            // .frame(width: 125, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .background(Color(.init(white: 0.9, alpha: 1)))
                             .cornerRadius(6)
-                            .shadow(radius: 3)
+                            .shadow(color: .init(.sRGB, white: 0.8, opacity: 1), radius: 4, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 2)
                             .padding(.bottom)
                     }
                 }.padding(.horizontal)
@@ -165,7 +195,7 @@ struct PopularRestourant: View {
                             .frame(width: 280, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .background(Color(.init(white: 0.9, alpha: 1)))
                             .cornerRadius(6)
-                            .shadow(radius: 3)
+                            .shadow(color: .init(.sRGB, white: 0.8, opacity: 1), radius: 4, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 2)
                             .cornerRadius(7)
                             .padding(.bottom)
                     }
@@ -186,7 +216,7 @@ struct GitInformation: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Top gits")
+                Text("Tour Guids")
                     .font(.system(size: 15, weight: .semibold))
                 Spacer()
                 Text("See All")
