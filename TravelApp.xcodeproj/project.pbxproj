@@ -17,6 +17,7 @@
 		0489FABC268DB783001C0DD3 /* ShadowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489FABB268DB783001C0DD3 /* ShadowModifier.swift */; };
 		0489FABF268DBA0C001C0DD3 /* UIFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489FABE268DBA0C001C0DD3 /* UIFoundation.swift */; };
 		0489FAC1268DBA13001C0DD3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489FAC0268DBA13001C0DD3 /* UIColor.swift */; };
+		0489FAC3268DC034001C0DD3 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489FAC2268DC034001C0DD3 /* View.swift */; };
 		04CE7FF62681175E00C3001B /* TravelAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040661912676520F0008B020 /* TravelAppApp.swift */; };
 		04CE7FF92681179400C3001B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CE7FF82681179400C3001B /* Model.swift */; };
 		04CE7FFA26811D7B00C3001B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040661952676520F0008B020 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		0489FABB268DB783001C0DD3 /* ShadowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowModifier.swift; sourceTree = "<group>"; };
 		0489FABE268DBA0C001C0DD3 /* UIFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFoundation.swift; sourceTree = "<group>"; };
 		0489FAC0268DBA13001C0DD3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		0489FAC2268DC034001C0DD3 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		04CE7FF82681179400C3001B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2332180DAE0050969C720192 /* Pods-TravelApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelApp.debug.xcconfig"; path = "Target Support Files/Pods-TravelApp/Pods-TravelApp.debug.xcconfig"; sourceTree = "<group>"; };
 		528E5A3F0BE8A4FEE295B7B9 /* Pods_TravelApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 			children = (
 				0489FABE268DBA0C001C0DD3 /* UIFoundation.swift */,
 				0489FAC0268DBA13001C0DD3 /* UIColor.swift */,
+				0489FAC2268DC034001C0DD3 /* View.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			files = (
 				04CE7FF62681175E00C3001B /* TravelAppApp.swift in Sources */,
 				0489FABC268DB783001C0DD3 /* ShadowModifier.swift in Sources */,
+				0489FAC3268DC034001C0DD3 /* View.swift in Sources */,
 				0489FAB9268DB662001C0DD3 /* DiscoveryCategoriesView.swift in Sources */,
 				0489FAB0268D8CA2001C0DD3 /* DiscoveryView.swift in Sources */,
 				04CE7FF92681179400C3001B /* Model.swift in Sources */,
