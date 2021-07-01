@@ -10,6 +10,7 @@ import SwiftUI
 struct ShadowModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
+            .background(Color.white)
             .shadow(color: .init(.sRGB, white: 0.8, opacity: 1), radius: 4, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 2)
     }
 }
